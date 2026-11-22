@@ -1,3 +1,7 @@
+if (localStorage.getItem("token") === null) {
+    window.location.href = "account/login.html";
+}
+
 let aura = 0;
 let multiplier1 = 1;
 let multiplier2 = 1;
@@ -15,6 +19,7 @@ const upgrade2 = document.querySelector(".upgrade2");
 const upgrade2_x = document.querySelector(".upgrade2_x");
 const upgrade2_price_tag = document.querySelector(".upgrade2_price_tag");
 const x = document.querySelector(".x");
+const boutonScores = document.querySelector(".btn-leaderboard");
 
 function afficher() {
     nombre.textContent = aura;
@@ -26,17 +31,22 @@ function afficher() {
 }
 
 function sauvegarder() {
-    localStorage.setItem("huss", JSON.stringify({ aura, multiplier1, multiplier2, upgrade_price1, upgrade_price2 }));
+    localStorage.setItem("huss2", JSON.stringify({ aura, multiplier1, multiplier2, upgrade_price1, upgrade_price2 }));
 }
 
-const data = JSON.parse(localStorage.getItem("huss"));
-if (data) {
-    aura = data.aura ?? 0;
-    multiplier1 = data.multiplier1 ?? 1;
-    multiplier2 = data.multiplier2 ?? 1;
-    upgrade_price1 = data.upgrade_price1 ?? 30;
-    upgrade_price2 = data.upgrade_price2 ?? 1200;
+function restaurer() {
+    try {
+        const data = JSON.parse(localStorage.getItem("huss2"));
+        if (!data) return;
+        aura = data.aura ?? 0;
+        multiplier1 = data.multiplier1 ?? 1;
+        multiplier2 = data.multiplier2 ?? 1;
+        upgrade_price1 = data.upgrade_price1 ?? 30;
+        upgrade_price2 = data.upgrade_price2 ?? 1200;
+    } catch {}
 }
+
+restaurer();
 afficher();
 
 bouton.addEventListener("click", () => {
@@ -66,3 +76,15 @@ upgrade2.addEventListener("click", () => {
         sauvegarder();
     }
 });
+
+boutonScores.addEventListener("click", async () => {
+    sauvegarder();
+    if (aura > 0) await envoyerScore(localStorage.getItem("pseudo"), aura).catch(() => {});
+    location.href = "leaderboard/leaderboard.html";
+});
+
+setInterval(() => {
+    if (aura > 0) envoyerScore(localStorage.getItem("pseudo"), aura).catch(() => {});
+}, 30000);
+
+addEventListener("pagehide", sauvegarder);
