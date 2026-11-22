@@ -1,5 +1,14 @@
-# There's not a lot of thing to do right now, they'll be more soon.
-# I'M NOT USING AI, upds will be longgg.
+# HUSS CLICKER
 
-# how to play ?
-just huss while the others are partying and gain aura.
+A small clicker game made with Electron, HTML, CSS and JavaScript.
+
+## How to play
+Just huss while the others are partying and gain aura.
+
+## Status
+There's not a lot to do right now, more content is coming soon.
+Updates will be long cause I don't use any AI tools.
+
+## Run it
+npm install
+npm start
