@@ -17,11 +17,18 @@ body {
   transform: scale(0.95);
 }
 
-.jeu {
+.placement_upgrades {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
+}
+.title {
+  color: red;
+}
+.upgrade_placement2 {
+  flex-direction: column;
+  align-items: center;
 }
 .upgrade {
   background: #ffff06;
