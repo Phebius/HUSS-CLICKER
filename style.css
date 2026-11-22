@@ -16,24 +16,27 @@ body {
 .hussing:active {
   transform: scale(0.95);
 }
-.upgrade {
-    background : #ffff06
-    color = white;
-    border: none;
-    border-radius: 50%;
-    width: 120px;
-    height: 80px;
-    cursor:pointer;
+
+.jeu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 .upgrade {
-    right:200px;
+  background: #ffff06;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 120px;
+  height: 80px;
+  cursor: pointer;
 }
 .upgrade:active {
     transform: scale(1.1);
 }
 
 .upgrade1_price {
-    right: 200px;
-    nav-up: 100px;
     color: green;
+    font-size: 10px;
 }
