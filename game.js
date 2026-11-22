@@ -1,14 +1,15 @@
-let aura = 102;
+let aura = 0;
 let multiplier1 = 1;
-let upgrade_price1 = 100;
+let upgrade_price1 = 30;
+let click = 1
 const bouton = document.querySelector(".hussing");
 const nombre = document.getElementById("nombre");
 const upgrade1 = document.querySelector(".upgrade");
 const upgrade1_x = document.getElementById("upgrade1_x");
 const upgrade1_price_tag = document.querySelector(".upgrade1_price_text");
-
+const x = document.querySelector(".x");
 bouton.addEventListener("click", () => {
-    aura += aura* multiplier1;
+    aura += click* multiplier1;
     nombre.textContent = aura;
 });
 
@@ -20,5 +21,6 @@ upgrade1.addEventListener("click", () => {
         upgrade_price1 = Math.ceil(upgrade_price1 * 1.2);
         nombre.textContent = aura;
         upgrade1_price_tag.textContent = upgrade_price1;
+        x.textContent = click *multiplier1;
     }
 });
