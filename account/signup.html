@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HUSS - Sign up</title>
+  <link rel="stylesheet" href="account.css">
+</head>
+<body>
+  <div class="fond" id="fond"></div>
+  <canvas id="feux"></canvas>
+  <main class="carte">
+    <div class="logo">💸</div>
+    <h1>JOIN THE HUSSERS</h1>
+    <p class="sous">Others are partying. You are hussing.</p>
+    <form id="form" data-mode="signup">
+      <label class="champ"><input id="pseudo" placeholder=" " maxlength="16" autocomplete="username"><span>Pseudo</span></label>
+      <label class="champ"><input id="mdp" type="password" placeholder=" " autocomplete="new-password"><span>Password</span></label>
+      <p id="message" role="alert"></p>
+      <button class="btn">SIGN UP</button>
+    </form>
+    <p class="lien">Already hussing ? <a href="login.html">Log in</a></p>
+  </main>
+  <script src="../config.js"></script>
+  <script src="fireworks.js"></script>
+  <script src="account.js"></script>
+</body>
+</html>

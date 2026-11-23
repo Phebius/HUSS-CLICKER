@@ -1,0 +1,30 @@
+:root { --bg:#14101f; --ombre:#0a0711; --lumiere:#201a31; --rose:#ff3d81; --or:#ffd400; --txt:#f3eeff; --mut:#9a92b3; }
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--bg); color: var(--txt); font-family: system-ui, sans-serif; min-height: 100vh; display: grid; place-items: center; padding: 20px; overflow: hidden; }
+
+#feux { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+.fond { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
+.fond span { position: absolute; bottom: -60px; font-weight: 900; color: var(--rose); opacity: .15; animation: monte linear infinite; }
+@keyframes monte { to { transform: translateY(-120vh) rotate(15deg); } }
+
+.carte { position: relative; z-index: 2; width: 100%; max-width: 400px; padding: 44px 36px; border-radius: 28px; text-align: center;
+  background: var(--bg); box-shadow: 18px 18px 40px var(--ombre), -18px -18px 40px var(--lumiere); }
+.logo { width: 76px; height: 76px; margin: 0 auto 20px; border-radius: 50%; display: grid; place-items: center; font-size: 2.2rem;
+  box-shadow: 8px 8px 18px var(--ombre), -8px -8px 18px var(--lumiere); }
+h1 { font-size: 1.25rem; letter-spacing: .06em; color: var(--or); }
+.sous { color: var(--mut); font-size: .9rem; margin: 6px 0 28px; }
+
+.champ { display: block; position: relative; margin-bottom: 20px; border-radius: 14px;
+  box-shadow: inset 6px 6px 12px var(--ombre), inset -6px -6px 12px var(--lumiere); }
+.champ:focus-within { box-shadow: inset 6px 6px 12px var(--ombre), inset -6px -6px 12px var(--lumiere), 0 0 0 2px var(--rose); }
+.champ input { width: 100%; background: none; border: 0; outline: 0; color: var(--txt); font-size: 1rem; padding: 26px 18px 10px; }
+.champ span { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--mut); pointer-events: none; transition: .2s; }
+.champ input:focus + span, .champ input:not(:placeholder-shown) + span { top: 12px; font-size: .7rem; transform: none; color: var(--rose); }
+
+#message { min-height: 1.4em; color: var(--or); font-size: .85rem; margin-bottom: 12px; }
+.btn { width: 100%; padding: 16px; border: 0; border-radius: 14px; cursor: pointer; font-weight: 800; letter-spacing: .1em; color: #fff;
+  background: var(--rose); box-shadow: 8px 8px 18px var(--ombre), -6px -6px 14px var(--lumiere); transition: .15s; }
+.btn:active { transform: scale(.97); }
+.btn:disabled { opacity: .5; cursor: wait; }
+.lien { margin-top: 22px; color: var(--mut); font-size: .9rem; }
+.lien a { color: var(--or); }
